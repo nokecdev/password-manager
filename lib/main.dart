@@ -11,9 +11,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:passwordmanager/Models/account.dart';
+import 'package:passwordmanager/Services/api_service.dart';
 
 void main() {
   runApp(const MyApp());
+  WebSocketServer().start();
 }
 
 class MyApp extends StatelessWidget {

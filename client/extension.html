@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Password Storage Extension</title>
+  </head>
+  <body>
+    <script lang="en">
+      const ws = new WebSocket("ws://192.168.0.116:4040");
+
+      ws.onopen = () => {
+        console.log("Connected to flutter server");
+        ws.send(JSON.stringify({ message: "Hello from Chrome!" }));
+      };
+
+      ws.onmessage = (event) => {
+        console.log("Message received from server:", event.data);
+      };
+
+      ws.onerror = (error) => {
+        console.error("WebSocket error:", error);
+      };
+
+      ws.onclose = () => {
+        console.log("Connection closed");
+      };
+    </script>
+  </body>
+</html>
